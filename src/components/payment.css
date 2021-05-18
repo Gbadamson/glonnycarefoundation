@@ -1,0 +1,57 @@
+.hint {
+  color: orange;
+  font-size: 35px;
+  font-weight: bold;
+}
+.formHolder {
+  display: flex;
+  width: 200px;
+  justify-content: center;
+  flex-direction: column;
+}
+.formHolder > input {
+  margin-top: 40px;
+}
+.payfor {
+  margin-top: 30px;
+}
+@media Screen and (max-width: 425px) {
+  .hint {
+    color: orange;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 25px;
+  }
+  .formHolder {
+    display: flex;
+    width: 200px;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .formHolder > input {
+    margin-top: 40px;
+  }
+  .payfor {
+    margin-top: 30px;
+  }
+}
+@media Screen and (max-width: 320px) {
+  .hint {
+    color: orange;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 30px;
+  }
+  .formHolder {
+    display: flex;
+    width: 200px;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .formHolder > input {
+    margin-top: 30px;
+  }
+  .payfor {
+    margin-top: 20px;
+  }
+}
