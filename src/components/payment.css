@@ -1,13 +1,29 @@
+.placement {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 30px 100px 0 100px;
+  height: auto;
+  margin-top: 30px;
+}
+.placeImage {
+  margin-left: 200px;
+  height: 250px;
+  width: 400px;
+}
 .hint {
   color: orange;
   font-size: 35px;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
 }
 .formHolder {
   display: flex;
   width: 200px;
   justify-content: center;
   flex-direction: column;
+  margin-left: 100px;
+  margin-bottom: 20px;
 }
 .formHolder > input {
   margin-top: 40px;
@@ -16,6 +32,20 @@
   margin-top: 30px;
 }
 @media Screen and (max-width: 425px) {
+  .placement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* padding: 30px 100px 0 100px; */
+    height: auto;
+    margin-top: 30px;
+  }
+  .placeImage {
+    margin-left: 10px;
+    height: 250px;
+    width: 400px;
+  }
   .hint {
     color: orange;
     font-size: 30px;

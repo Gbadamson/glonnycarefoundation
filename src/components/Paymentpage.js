@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { usePaystackPayment } from "react-paystack";
-import { Button } from "antd";
+import { Button, Input, Modal } from "antd";
+import { UserOutlined, PhoneOutlined, MailOutlined } from "@ant-design/icons";
 import { Link, useHistory } from "react-router-dom";
 import "./payment.css";
 import Header from "../includes/Header";
+import frad from "../includes/images/process.svg";
 
 const Paymentpage = () => {
+  const [name, setName] = useState("");
   const [usermail, setUsermail] = useState("");
   const [amount, setAmount] = useState("");
   const [phone, setPhone] = useState("");
@@ -27,13 +30,27 @@ const Paymentpage = () => {
   return (
     <div>
       <Header />
-      <center>
-        <div className="hint">
-          You are about to donate N{parseInt(amount) / 100} to the Glonny Care
-          Foundation
+
+      <div className="hint">
+        You are about to donate N{parseInt(amount) / 100} to the Glonny Care
+        Foundation
+      </div>
+      <div className="placement">
+        <div className="placeImage">
+          <img src={frad} width="100%" height="100%" />
         </div>
         <div className="formHolder">
-          <input
+          <Input
+            prefix={<UserOutlined />}
+            type="text"
+            value={name}
+            placeholder="Name"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+          <Input
+            prefix={<PhoneOutlined />}
             type="text"
             value={phone}
             placeholder="PhoneNumber"
@@ -41,7 +58,8 @@ const Paymentpage = () => {
               setPhone(e.target.value);
             }}
           />
-          <input
+          <Input
+            prefix={<MailOutlined />}
             type="text"
             value={usermail}
             placeholder="Email"
@@ -49,7 +67,7 @@ const Paymentpage = () => {
               setUsermail(e.target.value);
             }}
           />
-          <input
+          <Input
             type="text"
             value={amount}
             placeholder="Enter amount"
@@ -57,17 +75,17 @@ const Paymentpage = () => {
               setAmount(e.target.value);
             }}
           />
+          <div className="payfor">
+            <Button
+              onClick={() => {
+                initializePayment(onSuccess, onClose);
+              }}
+            >
+              PayNow
+            </Button>
+          </div>
         </div>
-        <div className="payfor">
-          <Button
-            onClick={() => {
-              initializePayment(onSuccess, onClose);
-            }}
-          >
-            PayNow
-          </Button>
-        </div>
-      </center>
+      </div>
     </div>
   );
 };
